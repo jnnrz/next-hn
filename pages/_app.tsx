@@ -10,10 +10,6 @@ Router.events.on('routeChangeError', () => nprogress.done());
 
 class MyApp extends App {
 
-  constructor(props: any) {
-    super(props);
-  }
-
   render(): JSX.Element {
     const { Component, pageProps } = this.props;
     return (
