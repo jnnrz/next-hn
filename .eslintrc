@@ -1,6 +1,10 @@
 {
   "extends": [
+    "airbnb-base",
     "eslint:recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
@@ -19,10 +23,16 @@
     "react": {
       "pragma": "React",
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx", ".js", ".jsx"]
+      }
     }
   },
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-var-requires": "off"
+    "@typescript-eslint/no-var-requires": "off",
+    "import/prefer-default-export": "off"
   }
 }
