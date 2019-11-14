@@ -2,3 +2,9 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import "../node_modules/nprogress/nprogress.css";
+@import "Header.css";
+
+body {
+  background-color: #f2f3f5;
+  font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
