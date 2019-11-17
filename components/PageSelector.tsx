@@ -11,7 +11,7 @@ const PageSelector = ({ current, maxPages }: PageSelectorProps) => {
 	const router = useRouter();
 
 	return (
-		<div className="mb-2 shadow bg-white p-2">
+		<div className="shadow bg-white p-2">
 			<div className="container mx-auto flex flex-row justify-center">
 				<button
 					className="selector-btn"
