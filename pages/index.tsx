@@ -2,12 +2,11 @@ import { NextPage, NextPageContext } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
-import Nav from '../components/Nav';
+import Header from '../components/Header';
 import PageSelector from '../components/PageSelector';
 import { config } from '../config';
 import { getFeed } from '../fetch';
 import { Article } from '../interfaces/Article';
-import Header from '../components/Header';
 
 interface HomeProps {
 	news: Article[];
@@ -15,11 +14,11 @@ interface HomeProps {
 	maxPages: number;
 }
 
-const Home: NextPage<any> = ({ news, currentPage, maxPages }: HomeProps) => {
+const Home: NextPage<HomeProps> = ({ news, currentPage, maxPages }: HomeProps) => {
 	return (
 		<div>
 			<Head>
-				<title>NextHN</title>
+				<title>{`NextHN | News | Page ${currentPage}`}</title>
 			</Head>
 
 			<Header>
