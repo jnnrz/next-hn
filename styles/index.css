@@ -3,8 +3,40 @@
 @import "tailwindcss/utilities";
 @import "../node_modules/nprogress/nprogress.css";
 @import "Header.css";
+@import "PageSelector.css";
 
 body {
-  background-color: #f2f3f5;
-  font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #f2f3f5;
+	font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#nprogress .bar {
+	background-color: rgb(255, 102, 0);
+	height: 3px;
+}
+
+#nprogress .spinner-icon {
+	border-top-color: rgb(255, 102, 0);
+	border-left-color: rgb(255, 102, 0);
+}
+
+.hn-orange {
+	color: rgb(255, 102, 0);
+}
+
+.points-box {
+	@apply p-4;
+	min-width: 70px !important;
+	text-align: center;
+}
+
+.comments-count:before {
+	content: "";
+	display: block;
+	background: url("/comment2.svg") center center no-repeat;
+	margin: 0 auto;
+	width: 1.3rem;
+	height: 1.3rem;
+	background-size: 1.3rem 1.3rem;
+	opacity: .3;
 }

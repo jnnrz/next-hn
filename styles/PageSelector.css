@@ -1,0 +1,4 @@
+.selector-btn:disabled {
+  color: rgb(173, 173, 173);
+  cursor: default;
+}
