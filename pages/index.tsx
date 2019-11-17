@@ -7,6 +7,7 @@ import PageSelector from '../components/PageSelector';
 import { config } from '../config';
 import { getFeed } from '../fetch';
 import { Article } from '../interfaces/Article';
+import Container from '../components/Container';
 
 interface HomeProps {
 	news: Article[];
@@ -25,7 +26,7 @@ const Home: NextPage<HomeProps> = ({ news, currentPage, maxPages }: HomeProps) =
 				<PageSelector current={currentPage} maxPages={maxPages} />
 			</Header>
 
-			<div className="container mx-auto bg-white shadow mt-24">
+			<Container>
 				<ul>
 					{news.length ? (
 						news.map((n: Article, k) => {
@@ -73,7 +74,7 @@ const Home: NextPage<HomeProps> = ({ news, currentPage, maxPages }: HomeProps) =
 						</div>
 					)}
 				</ul>
-			</div>
+			</Container>
 		</div>
 	);
 };
