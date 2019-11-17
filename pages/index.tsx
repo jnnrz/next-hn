@@ -31,7 +31,7 @@ const Home: NextPage<HomeProps> = ({ news, currentPage, maxPages }: HomeProps) =
 						news.map((n: Article, k) => {
 							return (
 								<li key={k} className="block hover:bg-gray-100 border-b border-gray-200">
-									<Link href={`/item/${n.id}`}>
+									<Link href={`/thread/${n.id}`}>
 										<div className="flex flex-row">
 											<div className="flex flex-row flex-initial items-center justify-center font-semibold hn-orange points-box border-r border-gray-200">
 												{n.points}
