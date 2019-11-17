@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from './Nav';
 
 interface HeaderProps {
-	children: object;
+	children?: object;
 }
 
 const Header = ({ children }: HeaderProps) => {
