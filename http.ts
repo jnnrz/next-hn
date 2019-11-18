@@ -1,14 +1,6 @@
 import fetch from 'isomorphic-unfetch';
-import ky from 'ky-universal';
 import LRUCache from 'lru-cache';
 import { baseURL } from './constants';
-
-const http = ky.create({
-	timeout: 5000,
-	hooks: {
-		afterResponse: [ (input, option, response) => {} ]
-	}
-});
 
 const options = {
 	max: 500,
