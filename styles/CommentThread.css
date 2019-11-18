@@ -1,0 +1,47 @@
+.comment-children {
+  margin-left: 2em;
+}
+
+.comment-children .comment-children {
+  margin-left: 2em;
+}
+.comment {
+  position: relative;
+}
+.comment .by,
+.comment .text,
+.comment .toggle {
+  font-size: 0.9em;
+  margin: 5px 0;
+}
+.comment .by {
+  color: #222;
+}
+/*.comment .by a {
+  color: #222;
+  text-decoration: underline;
+}*/
+.comment .text {
+  overflow-wrap: break-word;
+}
+
+.comment .text a {
+  @apply user;
+}
+
+.comment .text a:hover {
+  color: #111;
+}
+.comment .text pre {
+  white-space: pre-wrap;
+}
+
+.comment .toggle a {
+  color: #222;
+  cursor: pointer;
+}
+.comment .toggle .open {
+  padding: 0;
+  background-color: transparent;
+  margin-bottom: -0.5em;
+}
