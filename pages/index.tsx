@@ -5,7 +5,7 @@ import React from 'react';
 import Header from '../components/Header';
 import PageSelector from '../components/PageSelector';
 import { config } from '../config';
-import { getFeed } from '../fetch';
+import { get } from '../http';
 import { Article } from '../interfaces/Article';
 import Container from '../components/Container';
 
@@ -15,7 +15,7 @@ interface HomeProps {
 	maxPages: number;
 }
 
-const Home: NextPage<HomeProps> = ({ news, currentPage, maxPages }: HomeProps) => {
+const Home: NextPage<any> = ({ news, currentPage, maxPages }: HomeProps) => {
 	return (
 		<div>
 			<Head>
@@ -26,12 +26,12 @@ const Home: NextPage<HomeProps> = ({ news, currentPage, maxPages }: HomeProps) =
 				<PageSelector current={currentPage} maxPages={maxPages} />
 			</Header>
 
-			<Container>
+			<Container styles="mt-24">
 				<ul>
 					{news.length ? (
 						news.map((n: Article, k) => {
 							return (
-								<li key={k} className="block hover:bg-gray-100 border-b border-gray-200">
+								<li key={k} className="block hover:bg-gray-100 cursor-pointer border-b border-gray-200">
 									<Link href={`/thread/${n.id}`}>
 										<div className="flex flex-row">
 											<div className="flex flex-row flex-initial items-center justify-center font-semibold hn-orange points-box border-r border-gray-200">
@@ -50,9 +50,7 @@ const Home: NextPage<HomeProps> = ({ news, currentPage, maxPages }: HomeProps) =
 												<div className="text-sm">
 													by{' '}
 													<Link href={`/user/${n.user}`}>
-														<a className="font-semibold text-blue-700 hover:text-blue-400">
-															{n.user}
-														</a>
+														<a className="user">{n.user}</a>
 													</Link>
 													{' | '}
 													<span className="text-gray-600">{n.time_ago}</span>
@@ -81,7 +79,7 @@ const Home: NextPage<HomeProps> = ({ news, currentPage, maxPages }: HomeProps) =
 
 Home.getInitialProps = async (ctx: NextPageContext) => {
 	const page = ctx.query.page ? ctx.query.page : '1';
-	const results = await getFeed('news', page);
+	const results = await get('news', page);
 	const maxPages = config.maxPages.news;
 
 	return { news: results, maxPages, currentPage: Number(page) };

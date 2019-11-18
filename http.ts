@@ -1,5 +1,36 @@
+import fetch from 'isomorphic-unfetch';
 import ky from 'ky-universal';
+import LRUCache from 'lru-cache';
+import { baseURL } from './constants';
 
-export const http = ky.create({
-  credentials: "include",
+const http = ky.create({
+	timeout: 5000,
+	hooks: {
+		afterResponse: [ (input, option, response) => {} ]
+	}
 });
+
+const options = {
+	max: 500,
+	length: (n, key) => {
+		return n * 2 + key.length;
+	},
+	maxAge: 1000 * 60 * 60
+};
+
+const cache = new LRUCache(options);
+
+export const get = async (type, itemOrPage: string | any = '1') => {
+	const url = `${baseURL}/${type}/${itemOrPage}.json`;
+	const storedResponse = cache.get(url);
+
+	// If there is a stored response available, return that
+	if (typeof storedResponse !== 'undefined') {
+		return storedResponse;
+	}
+
+	const response = await fetch(url).then(r => r.json());
+	// Save response to the cache
+	cache.set(url, response);
+	return response;
+};
