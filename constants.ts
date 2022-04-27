@@ -1,1 +1,1 @@
-export const baseURL = 'https://api.hnpwa.com/v0';
+export const baseURL = "https://api.hnpwa.com/v0";
